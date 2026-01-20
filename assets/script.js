@@ -13,41 +13,44 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-// Apenas elementos de conteúdo
+// Apenas elementos de conteúdo (nunca layout estrutural)
 document.querySelectorAll(
-  ".card, .mgmt, .b-card, .e-card, .section-title"
+  ".card, .mgmt, .b-card, .e-card, .section-title, .page-hero h1, .page-hero p"
 ).forEach(el => observer.observe(el));
 
 
 // =========================================================
-// Menu Mobile — CONTROLE DEFINITIVO
+// Menu Mobile — CONTROLE DEFINITIVO (ROBUSTO)
 // =========================================================
 const burger = document.querySelector('[data-burger]');
 const drawer = document.querySelector('[data-drawer]');
 const drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
 
 function openMenu() {
+  if (!drawer || !burger) return;
+
   drawer.classList.add('open');
   burger.setAttribute('aria-expanded', 'true');
 
-  document.body.classList.add('menu-open'); // <<< ESSENCIAL
+  document.body.classList.add('menu-open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
+  if (!drawer || !burger) return;
+
   drawer.classList.remove('open');
   burger.setAttribute('aria-expanded', 'false');
 
-  document.body.classList.remove('menu-open'); // <<< ESSENCIAL
+  document.body.classList.remove('menu-open');
   document.body.style.overflow = '';
 }
 
 if (burger && drawer) {
 
-  // Clique no botão MENU
+  // Toggle do menu
   burger.addEventListener('click', () => {
-    const isOpen = drawer.classList.contains('open');
-    isOpen ? closeMenu() : openMenu();
+    drawer.classList.contains('open') ? closeMenu() : openMenu();
   });
 
   // Fecha ao clicar em qualquer link
@@ -58,6 +61,13 @@ if (burger && drawer) {
   // Fecha com ESC
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Fecha automaticamente ao voltar para desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980 && drawer.classList.contains('open')) {
       closeMenu();
     }
   });
