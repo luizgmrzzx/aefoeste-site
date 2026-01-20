@@ -17,3 +17,15 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(
   ".card, .mgmt, .b-card, .e-card, .section-title"
 ).forEach(el => observer.observe(el));
+// =========================================================
+// Menu Mobile — CONTROLE DEFINITIVO
+// =========================================================
+const burger = document.querySelector('[data-burger]');
+const drawer = document.querySelector('[data-drawer]');
+
+if (burger && drawer) {
+  burger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+}
