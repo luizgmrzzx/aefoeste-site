@@ -29,13 +29,17 @@ const drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
 function openMenu() {
   drawer.classList.add('open');
   burger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden'; // trava scroll
+
+  document.body.classList.add('menu-open'); // <<< ESSENCIAL
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
   drawer.classList.remove('open');
   burger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = ''; // libera scroll
+
+  document.body.classList.remove('menu-open'); // <<< ESSENCIAL
+  document.body.style.overflow = '';
 }
 
 if (burger && drawer) {
@@ -51,7 +55,7 @@ if (burger && drawer) {
     link.addEventListener('click', closeMenu);
   });
 
-  // Fecha com tecla ESC (acessibilidade)
+  // Fecha com ESC
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && drawer.classList.contains('open')) {
       closeMenu();
