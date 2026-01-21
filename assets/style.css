@@ -3480,3 +3480,492 @@ body.menu-open header {
   from{ transform: translateY(0); }
   to{ transform: translateY(-14px); }
 }
+/* =========================================================
+   FIX DEFINITIVO — Reveal + Filtro de Eventos
+   NÃO usar display:none no reveal
+   ========================================================= */
+
+/* Estado inicial (antes do reveal) */
+.e-card,
+.card,
+.mgmt,
+.b-card,
+.section-title,
+.page-hero h1,
+.page-hero p {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+/* Estado visível (IntersectionObserver) */
+.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* GARANTIA: cards SEMPRE existem no layout */
+
+
+/* Quando o filtro esconder, só o JS controla */
+.e-card[style*="display: none"] {
+  pointer-events: none;
+}
+/* =========================================================
+   Reveal + Filtro — versão correta (JS manda no display)
+   ========================================================= */
+
+/* Reveal inicial (NUNCA usar display aqui) */
+.e-card,
+.card,
+.mgmt,
+.b-card,
+.section-title,
+.page-hero h1,
+.page-hero p {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+/* Quando entra na tela */
+.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* O filtro controla a visibilidade */
+.e-card {
+  display: block;
+}
+
+/* Quando o JS esconder */
+.e-card[style*="display: none"] {
+  display: none;
+}
+.event-image img{
+  width:100%;
+  max-width:900px;
+  display:block;
+  margin:24px auto;
+  border-radius:14px;
+}
+/* =========================================================
+   DESIGN PATCH (v1) — Geral + Eventos
+   Cole no FINAL do assets/style.css
+   ========================================================= */
+
+/* ---------- Base visual melhor ---------- */
+:root{
+  --radius: 16px;                 /* se já existir, mantém este */
+  --radius-sm: 12px;
+  --line: rgba(255,255,255,.10);
+  --line-2: rgba(255,255,255,.14);
+
+  --card-bg: rgba(255,255,255,.045);
+  --card-bg-2: rgba(255,255,255,.03);
+
+  --shadow-1: 0 10px 30px rgba(0,0,0,.35);
+  --shadow-2: 0 18px 60px rgba(0,0,0,.45);
+
+  --focus: rgba(126,255,185,.45); /* verde claro p/ foco */
+}
+
+/* Tipografia mais “executiva” */
+body{
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Container mais confortável */
+.container{
+  max-width: 1120px; /* mais “pro” */
+}
+
+/* Links com underline só no hover */
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+/* Melhor foco (teclado) */
+:focus-visible{
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Botões mais “premium” */
+.btn{
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,.035);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(126,255,185,.22);
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  background: rgba(255,255,255,.06);
+}
+.btn.primary{
+  border-color: rgba(126,255,185,.28);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+/* Cards com aparência mais sólida */
+.card, .e-card, .mgmt, .panel, .box{
+  border-radius: var(--radius);
+}
+
+/* Page hero um pouco mais “fino” */
+.page-hero{
+  padding: 44px 0 34px;
+}
+.page-hero h1{
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: -0.03em;
+}
+.page-hero p{
+  color: rgba(238,244,239,.86);
+  max-width: 65ch;
+}
+
+/* Breadcrumbs mais discreto */
+.breadcrumbs{
+  opacity: .9;
+  font-size: 13px;
+}
+
+/* Footer mais limpo */
+.footer{
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.footer .footer-top{
+  gap: 18px;
+}
+/* =========================================================
+   EVENTOS — visual e layout
+   ========================================================= */
+
+.page-eventos .toolbar{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin: 18px 0 18px;
+  padding: 12px 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow-1);
+
+  position: sticky;
+  top: 76px; /* ajusta se teu header sticky for maior/menor */
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.page-eventos .tool{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-eventos .tool .label{
+  color: rgba(238,244,239,.78);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.page-eventos .chip{
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.035);
+  padding: 8px 12px;
+  line-height: 1;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.page-eventos .chip:hover{
+  transform: translateY(-1px);
+  border-color: rgba(126,255,185,.22);
+  background: rgba(255,255,255,.06);
+}
+.page-eventos .chip.is-active{
+  border-color: rgba(126,255,185,.35);
+  background: rgba(21,145,78,.18); /* verde discreto */
+}
+
+/* Campo de busca melhor */
+.page-eventos .tool.search{
+  flex: 1 1 320px;
+  justify-content: flex-end;
+}
+.page-eventos .input{
+  width: min(520px, 100%);
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.page-eventos .input:focus{
+  border-color: rgba(126,255,185,.35);
+}
+
+/* Cards em coluna com espaçamento “executivo” */
+.page-eventos .cards{
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.page-eventos .e-card{
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow-1);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  overflow: hidden;
+}
+.page-eventos .e-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(126,255,185,.16);
+  box-shadow: var(--shadow-2);
+}
+
+.page-eventos .e-top{
+  display:grid;
+  grid-template-columns: 150px 1fr;
+  gap: 14px;
+  padding: 16px;
+}
+
+@media (max-width: 720px){
+  .page-eventos .toolbar{ top: 64px; }
+  .page-eventos .e-top{ grid-template-columns: 1fr; }
+}
+
+/* Coluna da data “cartão” */
+.page-eventos .e-when{
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 12px;
+  align-self: start;
+}
+.page-eventos .e-date{
+  display:block;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+}
+
+/* Título/descrição */
+.page-eventos .e-title{
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.page-eventos .e-desc{
+  margin: 10px 0 0;
+  color: rgba(238,244,239,.82);
+  line-height: 1.45;
+}
+
+/* Badges e tags mais alinhados */
+.page-eventos .meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.page-eventos .badge{
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.page-eventos .e-tags{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.page-eventos .tag{
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid rgba(126,255,185,.18);
+  background: rgba(21,145,78,.12);
+  font-size: 12px;
+}
+/* =========================================================
+   BOLETIM — layout e visual (page-boletim)
+   ========================================================= */
+
+.page-boletim .toolbar{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin: 18px 0 18px;
+  padding: 12px 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow-1);
+
+  position: sticky;
+  top: 76px; /* igual eventos (ajuste se necessário) */
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.page-boletim .tool{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.page-boletim .tool .label{
+  color: rgba(238,244,239,.78);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.page-boletim .chip{
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.035);
+  padding: 8px 12px;
+  line-height: 1;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.page-boletim .chip:hover{
+  transform: translateY(-1px);
+  border-color: rgba(126,255,185,.22);
+  background: rgba(255,255,255,.06);
+}
+.page-boletim .chip.is-active{
+  border-color: rgba(126,255,185,.35);
+  background: rgba(21,145,78,.18);
+}
+
+/* Busca */
+.page-boletim .tool.search{
+  flex: 1 1 320px;
+  justify-content: flex-end;
+}
+.page-boletim .input{
+  width: min(520px, 100%);
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.page-boletim .input:focus{
+  border-color: rgba(126,255,185,.35);
+}
+
+/* Lista */
+.page-boletim .cards{
+  display:grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Card do boletim */
+.page-boletim .b-card{
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 16px;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.page-boletim .b-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(126,255,185,.16);
+  box-shadow: var(--shadow-2);
+}
+
+/* Topo com título + botão */
+.page-boletim .b-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-boletim .b-title{
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* Meta badges */
+.page-boletim .meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.page-boletim .badge{
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* Descrição */
+.page-boletim .b-desc{
+  margin: 10px 0 0;
+  color: rgba(238,244,239,.82);
+  line-height: 1.45;
+}
+
+/* Rodapé do card (ações + tags) */
+.page-boletim .b-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* Tag visual igual ao eventos */
+.page-boletim .tag{
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid rgba(126,255,185,.18);
+  background: rgba(21,145,78,.12);
+  font-size: 12px;
+}
+
+/* Botão "Abrir PDF" no topo fica sempre destacado */
+.page-boletim .b-top .btn.primary{
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .page-boletim .toolbar{ top: 64px; }
+  .page-boletim .b-top{ flex-direction: column; }
+  .page-boletim .b-top .btn.primary{ width: 100%; text-align: center; }
+}
