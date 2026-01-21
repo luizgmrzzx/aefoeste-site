@@ -72,3 +72,31 @@ if (burger && drawer) {
     }
   });
 }
+
+
+// =========================================================
+// Filtro de atividades (Toolbar)
+// =========================================================
+const chips = document.querySelectorAll('.chip[data-filter]');
+const cards = document.querySelectorAll('.e-card');
+
+if (chips.length && cards.length) {
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter;
+
+      // estado visual dos botões
+      chips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+
+      // aplica filtro real
+      cards.forEach(card => {
+        if (filter === 'Todos' || card.dataset.tag === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}

@@ -90,14 +90,16 @@ c
 
     <!-- Toolbar -->
     <div class="toolbar">
-      <div class="tool">
-        <span class="label">Filtro:</span>
-        <button class="chip is-active" type="button">Todos</button>
-        <button class="chip" type="button">Cursos</button>
-        <button class="chip" type="button">Reuniões</button>
-        <button class="chip" type="button">Participação</button>
-        <button class="chip" type="button">informativos</button>
-      </div>
+    <div class="tool">
+  <span class="label">Filtro:</span>
+
+  <button class="chip is-active" type="button" data-filter="Todos">Todos</button>
+  <button class="chip" type="button" data-filter="Curso">Cursos</button>
+  <button class="chip" type="button" data-filter="Reunião">Reuniões</button>
+  <button class="chip" type="button" data-filter="Participação">Participação</button>
+  <button class="chip" type="button" data-filter="Informativo">Informativos</button>
+</div>
+
 
       <div class="tool search">
         <label class="sr-only" for="qevt">Pesquisar eventos</label>
@@ -108,84 +110,618 @@ c
     <!-- Lista -->
     <div class="cards">
       <!-- Evento 1 -->
-      <article class="e-card" data-tag="Informativo">
-        <div class="e-top">
-          <div class="e-when">
-            <div class="e-date">30/12/2025</div>
-          </div>
+<article class="e-card" data-tag="Informativo">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-12-30">30/12/2025</time>
+    </div>
 
-          <div class="e-main">
-            <h2 class="e-title">Informativo: BOLETINS, JORNAIS, REVISTAS OU PUBLICAÇÕES DA ENTIDADE.</h2>
-            <div class="meta">
-              <span class="badge">Chapecó — SC</span>
-              <span class="badge">Auditório (exemplo)</span>
-            </div>
-            <p class="e-desc">Capacitação com foco prático para profissionais e estudantes. Conteúdo objetivo e aplicável.</p>
-            <div class="e-tags">
-              <span class="tag">Curso</span>
-              <span class="tag">Presencial</span>
-            </div>
-          </div>
+    <div class="e-main">
+      <h2 class="e-title">Boletim Informativo AEFOESTE nº 03/2025</h2>
 
-          <div class="e-actions">
-            <a class="btn primary" href="#" aria-label="Ver detalhes do evento">Detalhes</a>
-          </div>
-        </div>
-      </article>
+      <div class="meta">
+        <span class="badge">Publicação institucional</span>
+        <span class="badge">Formato digital</span>
+      </div>
+
+      <p class="e-desc">
+        Publicação institucional da AEFOESTE contendo o registro das principais atividades do período, eventos realizados, comunicados oficiais e agenda de ações da entidade.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Informativo</span>
+        <span class="tag">Boletim</span>
+        <span class="tag">Institucional</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes do boletim informativo">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+
 
       <!-- Evento 2 -->
-      <article class="e-card" data-tag="Reuniões">
-        <div class="e-top">
-          <div class="e-when">
-            <div class="e-date">10/03/2026</div>
-            <div class="e-time">19:00 — 20:30</div>
-          </div>
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-07-15">15/07/2025</time>
+    </div>
 
-          <div class="e-main">
-            <h2 class="e-title">Palestra: Representatividade no Sistema CONFEA/CREA</h2>
-            <div class="meta">
-              <span class="badge">Online</span>
-              <span class="badge">Plataforma: Meet (ex.)</span>
-            </div>
-            <p class="e-desc">Panorama, oportunidades e caminhos para fortalecer a atuação do Engenheiro Florestal.</p>
-            <div class="e-tags">
-              <span class="tag">Palestra</span>
-              <span class="tag">Online</span>
-            </div>
-          </div>
+    <div class="e-main">
+      <h2 class="e-title">
+        Assembleia Geral Extraordinária — Comitê da Bacia do Rio das Antas
+      </h2>
 
-          <div class="e-actions">
-            <a class="btn primary" href="#" aria-label="Ver detalhes do evento">Detalhes</a>
-          </div>
-        </div>
-      </article>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Gestão de recursos hídricos</span>
+      </div>
+
+      <p class="e-desc">
+        Participação institucional da AEFOESTE, representada pelo presidente Eng. Florestal Rodrigo Delazeri e pela Engenheira Florestal Michele Benetti Leite, na Assembleia Geral Extraordinária do Comitê de Gerenciamento da Bacia Hidrográfica do Rio das Antas, Bacias Contíguas e Afluentes Catarinenses do Rio Peperi-Guaçu.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Assembleia</span>
+        <span class="tag">Comitê de Bacia</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da participação institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+
 
       <!-- Evento 3 -->
-      <article class="e-card" data-tag="Assembleia">
-        <div class="e-top">
-          <div class="e-when">
-            <div class="e-date">05/04/2026</div>
-            <div class="e-time">09:00 — 10:30</div>
-          </div>
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-10-13">13/10/2025</time>
+    </div>
 
-          <div class="e-main">
-            <h2 class="e-title">Assembleia: Prestação de contas e deliberações</h2>
-            <div class="meta">
-              <span class="badge">Chapecó — SC</span>
-              <span class="badge">Sede (exemplo)</span>
-            </div>
-            <p class="e-desc">Pauta: informes, prestação de contas, calendário e encaminhamentos.</p>
-            <div class="e-tags">
-              <span class="tag">Assembleia</span>
-              <span class="tag">Institucional</span>
-            </div>
-          </div>
+    <div class="e-main">
+      <h2 class="e-title">
+        Debate Técnico em Rádio — Georreferenciamento Rural
+      </h2>
 
-          <div class="e-actions">
-            <a class="btn primary" href="#" aria-label="Ver detalhes do evento">Detalhes</a>
-          </div>
-        </div>
-      </article>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Rádio Condá — Chapecó/SC</span>
+      </div>
+
+      <p class="e-desc">
+        Participação do associado da AEFOESTE, Eng. Florestal Angelo Alfredo Goellner, em debate técnico sobre georreferenciamento rural, contribuindo para a disseminação de conhecimento técnico junto à comunidade regional.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Mídia</span>
+        <span class="tag">Georreferenciamento</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da participação institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-07-28">28–30/07/2025</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">
+        XV Simpósio Nacional de Recuperação de Áreas Degradadas
+      </h2>
+
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Curitiba — PR</span>
+      </div>
+
+      <p class="e-desc">
+        Participação institucional do presidente da AEFOESTE, Eng. Florestal Rodrigo Delazeri, no XV Simpósio Nacional de Recuperação de Áreas Degradadas, evento de referência nacional voltado ao avanço técnico e científico da recuperação ambiental.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Simpósio</span>
+        <span class="tag">Recuperação Ambiental</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da participação institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+<!-- ===================================================== -->
+<!-- ATIVIDADES INSTITUCIONAIS – CONTINUAÇÃO -->
+<!-- ===================================================== -->
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-03-25">25/03/2025</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">7ª Assembleia Geral Ordinária — Comitê da Bacia do Rio das Antas</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Gestão de recursos hídricos</span>
+      </div>
+      <p class="e-desc">
+        Participação institucional da AEFOESTE, representada pela Conselheira Suplente Engenheira Florestal Michele Benetti Leite, na 7ª Assembleia Geral Ordinária do Comitê de Gerenciamento da Bacia Hidrográfica do Rio das Antas, Bacias Contíguas e Afluentes Catarinenses do Rio Peperi-Guaçu.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Assembleia</span>
+        <span class="tag">Comitê de Bacia</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2025-06-26">26/06/2025</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Reunião Extraordinária — Conselho Consultivo da Flona de Chapecó</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Chapecó — SC</span>
+      </div>
+      <p class="e-desc">
+        Participação do presidente da AEFOESTE, Eng. Florestal Rodrigo Delazeri, na Reunião Extraordinária do Conselho Consultivo da Floresta Nacional de Chapecó, realizada na Universidade Federal da Fronteira Sul, com pauta institucional e de governança da Unidade de Conservação.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Conselho Consultivo</span>
+        <span class="tag">Unidade de Conservação</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Informativo">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-12-30">30/12/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Boletim Informativo AEFOESTE nº 02/2024</h2>
+      <div class="meta">
+        <span class="badge">Publicação institucional</span>
+        <span class="badge">Formato digital</span>
+      </div>
+      <p class="e-desc">
+        Boletim institucional com a divulgação de eventos realizados, destaques do semestre, atuação da entidade no sistema profissional e oportunidades aos associados.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Informativo</span>
+        <span class="tag">Boletim</span>
+        <span class="tag">Institucional</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes do boletim informativo">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-11-27">27/11/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">1ª Conferência Regional do Meio Ambiente — Extremo Oeste SC</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">São Miguel do Oeste — SC</span>
+      </div>
+      <p class="e-desc">
+        Participação do presidente da AEFOESTE, Eng. Florestal Rodrigo Delazeri, na 1ª Conferência Regional do Meio Ambiente do Extremo Oeste de Santa Catarina, voltada à discussão da emergência climática e à formulação de propostas para políticas públicas ambientais.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Conferência</span>
+        <span class="tag">Política Ambiental</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-12-11">11/12/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Reunião Ordinária — Conselho Consultivo da Flona de Chapecó</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Floresta Nacional de Chapecó</span>
+      </div>
+      <p class="e-desc">
+        Participação institucional da AEFOESTE, representada pelo presidente Eng. Florestal Rodrigo Delazeri e pelo Eng. Florestal Marlon Perazoli, na Reunião Ordinária do Conselho Consultivo da Floresta Nacional de Chapecó.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Conselho Consultivo</span>
+        <span class="tag">Flona</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-11-19">19/11/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">3ª Assembleia Geral Ordinária — Comitê da Bacia do Rio das Antas</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Gestão de recursos hídricos</span>
+      </div>
+      <p class="e-desc">
+        Participação institucional da AEFOESTE, representada pelo presidente Eng. Florestal Rodrigo Delazeri e pela Engenheira Florestal Michele Benetti Leite, na 3ª Assembleia Geral Ordinária do Comitê da Bacia Hidrográfica do Rio das Antas.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Assembleia</span>
+        <span class="tag">Comitê de Bacia</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-12-03">03/12/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Evento Online — Cobrança pelo Uso de Recursos Hídricos</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Formato online</span>
+      </div>
+      <p class="e-desc">
+        Participação do presidente da AEFOESTE, Eng. Florestal Rodrigo Delazeri, em evento online promovido pelo Comitê da Bacia do Rio das Antas, abordando instrumentos de valorização e proteção dos recursos hídricos.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Recursos Hídricos</span>
+        <span class="tag">Evento Online</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-07-01">01/07/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">5ª Assembleia Geral Ordinária — Comitê da Bacia do Rio das Antas</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Gestão de recursos hídricos</span>
+      </div>
+      <p class="e-desc">
+        Participação institucional da AEFOESTE, representada pelo presidente Eng. Florestal Rodrigo Delazeri e pela Engenheira Florestal Michele Benetti Leite, na 5ª Assembleia Geral Ordinária do Comitê da Bacia Hidrográfica do Rio das Antas.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Assembleia</span>
+        <span class="tag">Comitê de Bacia</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-05-15">15/05/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Assembleia Setorial Pública — Comitê da Bacia do Rio das Antas</h2>
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Participação social</span>
+      </div>
+      <p class="e-desc">
+        Participação do presidente da AEFOESTE, Eng. Florestal Rodrigo Delazeri, na Assembleia Setorial Pública do segmento População da Bacia, no âmbito do Comitê da Bacia Hidrográfica do Rio das Antas.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Assembleia Setorial</span>
+        <span class="tag">Gestão Participativa</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2024-02-27">27/02/2024</time>
+    </div>
+    <div class="e-main">
+      <h2 class="e-title">Reunião Conjunta AEFOESTE e AEFSUL</h2>
+      <div class="meta">
+        <span class="badge">Reunião institucional</span>
+        <span class="badge">Entidades de classe</span>
+      </div>
+      <p class="e-desc">
+        Reunião conjunta entre a AEFOESTE e a AEFSUL para alinhamento institucional e discussão de pautas relacionadas às entidades de classe e à Engenharia Florestal.
+      </p>
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Reunião</span>
+        <span class="tag">Entidades de Classe</span>
+      </div>
+    </div>
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">Detalhes</a>
+    </div>
+  </div>
+</article>
+<!-- ===================================================== -->
+<!-- ATIVIDADES INSTITUCIONAIS – CONTINUAÇÃO (2023) -->
+<!-- ===================================================== -->
+
+<article class="e-card" data-tag="Informativo">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-12-30">30/12/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Boletim Informativo AEFOESTE nº 01/2023</h2>
+
+      <div class="meta">
+        <span class="badge">Publicação institucional</span>
+        <span class="badge">Publicação inaugural</span>
+      </div>
+
+      <p class="e-desc">
+        Boletim informativo inaugural da AEFOESTE, apresentando os objetivos da entidade, ações iniciais desenvolvidas e os canais de comunicação com os associados.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Informativo</span>
+        <span class="tag">Boletim</span>
+        <span class="tag">Institucional</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes do boletim informativo">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-10-24">24/10/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Reunião de Revisão do Plano Diretor de Caibi — SC</h2>
+
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Planejamento urbano</span>
+      </div>
+
+      <p class="e-desc">
+        Participação do representante da AEFOESTE, Eng. Florestal Rodrigo Delazeri, na reunião de revisão do Plano Diretor do Município de Caibi–SC, contribuindo tecnicamente com discussões relacionadas ao ordenamento territorial.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Plano Diretor</span>
+        <span class="tag">Gestão Municipal</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-04-26">26/04/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Curso Técnico — Resíduos Sólidos e Educação Ambiental</h2>
+
+      <div class="meta">
+        <span class="badge">Evento técnico-cultural</span>
+        <span class="badge">Gestão ambiental</span>
+      </div>
+
+      <p class="e-desc">
+        Participação do representante da AEFOESTE, Eng. Florestal Rodrigo Delazeri, no curso “Resíduos Sólidos: Conceitos e Práticas em Gestão, Gerenciamento e Educação Ambiental”, voltado à qualificação técnica na área ambiental.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Curso</span>
+        <span class="tag">Resíduos Sólidos</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-12-08">08/12/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Reunião Conjunta AEFOESTE e AEFSUL</h2>
+
+      <div class="meta">
+        <span class="badge">Reunião institucional</span>
+        <span class="badge">Entidades de classe</span>
+      </div>
+
+      <p class="e-desc">
+        Reunião conjunta entre AEFOESTE e AEFSUL, com a participação do Eng. Florestal Rodrigo Delazeri como Secretário Ad Hoc, destinada ao alinhamento institucional e discussão de pautas estratégicas da Engenharia Florestal.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Reunião</span>
+        <span class="tag">Entidades de Classe</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-04-24">24/04/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Reunião Conjunta AEFOESTE e AEFSUL</h2>
+
+      <div class="meta">
+        <span class="badge">Reunião institucional</span>
+        <span class="badge">Entidades de classe</span>
+      </div>
+
+      <p class="e-desc">
+        Participação do Eng. Florestal Rodrigo Delazeri como Secretário Ad Hoc da AEFOESTE em reunião conjunta com a AEFSUL, abordando assuntos relacionados às entidades de classe e à Engenharia Florestal.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Reunião</span>
+        <span class="tag">Entidades de Classe</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+<article class="e-card" data-tag="Participação">
+  <div class="e-top">
+    <div class="e-when">
+      <time class="e-date" datetime="2023-01-26">26/01/2023</time>
+    </div>
+
+    <div class="e-main">
+      <h2 class="e-title">Reunião Conjunta AEFOESTE e AEFSUL</h2>
+
+      <div class="meta">
+        <span class="badge">Reunião institucional</span>
+        <span class="badge">Entidades de classe</span>
+      </div>
+
+      <p class="e-desc">
+        Participação do Eng. Florestal Rodrigo Delazeri como Secretário Ad Hoc da AEFOESTE em reunião conjunta com a AEFSUL, voltada à discussão de pautas institucionais e profissionais da Engenharia Florestal.
+      </p>
+
+      <div class="e-tags">
+        <span class="tag">Participação</span>
+        <span class="tag">Reunião</span>
+        <span class="tag">Entidades de Classe</span>
+      </div>
+    </div>
+
+    <div class="e-actions">
+      <a class="btn primary" href="#" aria-label="Ver detalhes da atividade institucional">
+        Detalhes
+      </a>
+    </div>
+  </div>
+</article>
+
+
+
+
+
     </div>
 
     <div class="note" style="margin-top:14px">
